@@ -17,6 +17,26 @@ void	sort_three(t_list **a)
 			sa(a);
 	}
 }
+int	minn(t_list **a)
+{
+	int		min;
+	t_list	*noda;
+
+	if (!a || !(*a))
+	{
+		freelist(a);
+		put_err();
+	}
+	min = 2147483647;
+	noda = *a;
+	while (noda)
+	{
+		if (noda->val < min)
+			min = noda->val;
+		noda = noda->next;
+	}
+	return (min);
+}
 
 void	sort_four(t_list **a, t_list **b)
 {
